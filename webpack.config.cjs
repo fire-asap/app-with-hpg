@@ -18,6 +18,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js'],
+    // 让 hpg-ui 库的 external dep可以被正确的 resolve!!
+    alias: {
+      react: path.resolve(__dirname, './node_modules/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+    },
   },
   module: {
     rules: [
