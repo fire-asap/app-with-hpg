@@ -1,0 +1,24 @@
+{
+  "extends": ["eslint-config-airbnb", "prettier"],
+  "rules": {
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
+    "react/react-in-jsx-scope": 0,
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prop-types.md
+    "react/prop-types": 0,
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+    "react/jsx-props-no-spreading": 0,
+
+    "no-console": 1,
+    "no-unused-vars": 1,
+    // https://eslint.org/docs/latest/rules/no-restricted-syntax
+    "no-restricted-syntax": 1,
+    // https://eslint.org/docs/latest/rules/no-plusplus
+    "no-plusplus": 0
+  },
+  "plugins": ["@emotion/eslint-plugin"],
+  "globals": { "document": true, "window": true }
+}
