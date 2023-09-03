@@ -31,7 +31,7 @@
   "dependencies": {
     "@babel/runtime": "^7.22.11",
     "core-js": "3",
-    "hpg-ui": "link:/Users/huanqiu/Documents/playgrounds/nz_playgrounds/hpg-ui",
+    "hpg-ui": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.7"
