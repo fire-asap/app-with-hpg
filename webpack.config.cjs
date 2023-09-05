@@ -1,21 +1,26 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const BUILD = process.env.NODE_ENV === 'development' ? '.' : 'build';
+
+const isDev = process.env.NODE_ENV === 'development';
+const BUILD = isDev ? '.' : 'build';
+const MODE = isDev ? 'development' : 'production';
 console.log(process.env.NODE_ENV, BUILD);
 
 module.exports = {
-  mode: 'development',
+  mode: MODE,
   entry: './src/index.js',
   output: {
     clean: true,
-    filename: 'webpack_bundle.js',
+    filename: isDev ? 'webpack_bundle.js' : 'webpack_bundle.[hash:8].js',
     path: path.resolve(__dirname, `${BUILD}`),
   },
-  devtool: 'eval-cheap-module-source-map',
-  devServer: {
-    open: true,
-    port: 8090,
-  },
+  devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
+  devServer: isDev
+    ? {
+        open: true,
+        port: 8090,
+      }
+    : undefined,
   resolve: {
     extensions: ['.js'],
     // 让 hpg-ui 库的 external dep可以被正确的 resolve!!
@@ -58,7 +63,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'ddd App',
       template: 'index.html',
-      filename: `${BUILD}/index.html`,
+      filename: `index.html`,
       inject: true,
     }),
   ],
