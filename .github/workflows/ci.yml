@@ -40,9 +40,9 @@ jobs:
           pnpm run build
 
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::516331942984:oidc-provider/token.actions.githubusercontent.com #change to reflect your IAM role’s ARN
+          role-to-assume: arn:aws:iam::516331942984:oidc-provider/token.actions.githubusercontent.com
           # role-session-name: GitHub_to_AWS_via_FederatedOIDC # what is this for?
           aws-region: ${{ env.AWS_REGION }}
 
