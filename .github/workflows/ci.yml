@@ -31,5 +31,5 @@ jobs:
         pnpm run build
         
     - name: build docker image
-      run: docker build -t myapp:1.0
+      run: docker build -t myapp:1.0 .
       
